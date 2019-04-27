@@ -1,0 +1,133 @@
+html {
+    background-color: ivory;
+    font-size:1.5em;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    margin:0;
+}
+
+#title {
+    text-align:center;
+    margin:0;
+    padding:1em;
+    background-color:ivory;
+    color:black;
+    font-family:'garmond';
+}
+
+#title h1 {
+    font-size:3.5em;
+}
+
+body {
+    margin:0;
+    background-color: ivory;
+}
+
+header {
+    background-color:#800000;
+    color:#eee;
+    padding:0 1em;
+    margin:0;
+}
+
+nav {
+    font-family:'garmond';
+}
+
+nav li {
+    display: inline-block;
+    list-style:none;
+    padding:1em 1em;
+    font-size:2em;
+}
+
+nav li:hover,
+nav a:hover {
+    color:white;
+    background-color:#a72121;
+}
+
+nav a {
+    text-decoration:none;
+    color:white;
+}
+
+#metadata-row {
+    padding:1em;
+    font-size:1em;
+    text-align:center;
+    background-color: ivory;
+}
+
+#metadata-items {
+    display:inline;
+}
+
+#meta-title {
+    font-size:2.5em;
+    font-weight: bold;
+}
+
+#button_row {
+        color:#eee;
+        padding:0;
+        font-size:1.5em;
+}
+
+button {
+    display: inline-block;
+    border: 1px grey solid;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background-color:#444;
+    color:#eee;
+    padding:1em;
+    font-family: sans-serif;
+    cursor: pointer;
+    text-align: center;   
+    transition: background-color 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background-color: #0053ba;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+#openseadragon1 {
+    background-color:black;
+    height: 800px;
+}
+
+#textfield {
+    padding: 1em;
+    background-color:#eee;
+    height: 800px;
+    font-size:1.5em;
+
+}
+
+footer {
+    background-color:#800000;
+    color:#eee;
+    padding:.5em 1em;
+    height:100%;
+    text-align:center;
+}
+
+footer a {
+    text-decoration:underline;
+    color:white;
+}

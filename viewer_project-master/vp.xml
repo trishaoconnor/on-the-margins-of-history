@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sga_transform.xsl"?><!-- This is the stylehseet ref-->
+
+<TEI version="3.3.0" 
+  xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        College Corpus Christi Cambridge 41
+      </titleStmt>
+      <sourceDesc>
+        <msDesc>
+        <origDate>980-1041</origDate>
+          <msIdentifier>
+            
+            <repository>Parker Library</repository>
+            
+            <altIdentifier>Bede Historia Ecclesiastica       
+            </altIdentifier>
+          </msIdentifier>
+          <msContents>
+            <msItem>
+              <title type="uniform" xml:lang="la">Histor Bede</title>
+              <textLang mainLang="oe">Old English</textLang>
+            </msItem>
+          </msContents>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <facsimile>
+        <handShift medium="pen" new="#gloss"/>
+        <line rend="center">Histor Bede</line>
+        <line rend="center">College Corp. Christi Cantabr. Sum</line>
+        <line rend="center">incola.</line>
+
+        <zone xml:id="headBlock">
+          <handShift medium="quill" new="#scibe"/>
+          <line>
+            <hi rend="dropcap">Ð</hi>IS</line>
+          <line>IS</line>
+          <line>SEO</line>
+          <line>GESETTNES ÐlSSE</line>
+          <line>BRYTENE OÐ HIBERNIA</line>
+        </zone>
+
+      </facsimile>
+    </body>
+  </text>
+</TEI>
+
+
+
+

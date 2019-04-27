@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sga_transform.xsl"?><!-- This is the stylehseet ref-->
+
+<TEI version="3.3.0" 
+  xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        Cotton Vitellius A. xv
+      </titleStmt>
+      <sourceDesc>
+        <msDesc>
+        <origDate>975–1010</origDate>
+          <msIdentifier>
+            <repository>British Library</repository>
+
+            <altIdentifier>The Beowulf Manuscript    
+            </altIdentifier>
+          </msIdentifier>
+          <msContents>
+            <msItem>
+              
+              <textLang mainLang="oe">Old English</textLang>
+            </msItem>
+          </msContents>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <facsimile>
+<p><b>Hwæt. We Gardena</b><br>
+in geardagum, þeodcyninga,<br> 
+þrym gefrunon, hu ða æþelingas ellen<br> 
+fremedon. Oft Scyld Scefing sceaþena <br>
+þreatum, monegum mægþum, meodosetla<br>
+ofteah, egsode eorlas. Syððan ærest wearð<br>
+feasceaft funden, he þæs frofre gebad<br> 
+weox under wolcnum, weorðmyndum þah,<br>
+oðþæt him æghwylc þara ymbsittendra<br>
+ofer hronrade hyran scolde,<br>
+gomban gyldan. þæt wæs god cyning.<br> 
+ðæm eafera wæs æfter cenned,<br>
+geong in geardum, þone god sende<br> 
+folce to frofre; fyrenðearfe ongeat<br>
+þe hie ær drugon aldorlease<br>
+lange hwile. Him þæs liffrea,<br>
+wuldres wealdend, woroldare forgeaf;<br> 
+Beowulf wæs breme blæd wide sprang,<br>
+Scyldes eafera Scedelandum in.<br> 
+Swa sceal geong guma gode gewyrcean,<br> 
+fromum feohgiftum on fæder</p>
+<body>
+</html>

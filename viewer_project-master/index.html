@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Viewer Test Page</title>
+</head>
+
+<body>
+    <header class="row">
+        <div class="row" id="title">
+            <h1>On The Margins of History</h1>
+        </div>
+        <div class="row" id="navline">
+            <div class="col-xs-2"></div>
+            <nav class="col-xs-8">
+                <li>Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="using_the_website.html">Using
+                        the Website</a></li>
+                <li><a href="exploring_the_manuscript.html">Exploring
+                        the Manuscript</a></li>
+                <li>
+                    <a href="transcriptionguide.html">Transcription Guide</a>
+                </li>
+            </nav>
+            <div class="col-xs-2"></div>
+        </div>
+    </header>
+    <section class="row" id="metadata-row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6" id="metadata-items">
+            <div id="meta-title"></div>
+            <div id="alt-Identifier"></div>
+            <div id="orig-Date"></div>
+            <div id="text-Lang"></div>
+        </div>
+        <div class="col-xs-3"></div>
+    </section>
+
+    <section class="row" id="button_row">
+        <button class="col-md-6" id="back_button">Back</button>
+        <button class="col-md-6" id="next_button">Next</button>
+    </section>
+    <section class="row" id="viewer">
+        <div class="col-md-6" id="openseadragon1"></div>
+        <div class="col-md-6" id="textfield" data-manifest-file="C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/manifest.json">
+            <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo magnam quam aut eaque ipsum aliquid, quos incidunt eum alias praesentium laudantium omnis commodi deleniti placeat reiciendis cupiditate dolor voluptas iusto repellendus tempora, enim cumque repellat quaerat. Natus a consequatur eos nobis voluptate nostrum, fugiat neque accusantium excepturi perferendis tempore obcaecati vel quas voluptatibus dolor iste. Labore, tenetur atque id quae harum porro ut voluptatum corrupti modi nulla doloribus fugiat quas commodi veniam. Odio officia temporibus quam? Inventore beatae rerum aliquam labore. Natus, fuga omnis aperiam laudantium praesentium esse dolor nam rerum, provident atque unde, deleniti sequi explicabo eveniet tempora quod.-->
+        </div>
+    </section>
+    <footer class="row">
+        <p>Original Image Copyright © Parker Library, Corpus Christi College, Cambridge
+            On the Margins of History was created in fulfillment of the requirements for a PhD in Digital Arts and
+            Humanities, University College Cork, 2018.</p>
+        <p><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="Creative Commons License"
+                    src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a></p>
+        <p><i>On the Margins of History</i> by Patricia O Connor is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"
+                rel="license">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+        <div class="col-md-6"><img src="images/irc_logo.jpg" />
+        </div>
+        <div class="col-md-6">
+            <img src="images/ucc_logo.png" />
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/js/jquery.js"></script>
+    <script src="C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/openseadragon/openseadragon.min.js"></script>
+    <script type="text/javascript">
+        var viewer = OpenSeadragon({
+            id: "openseadragon1",
+            prefixUrl: "C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/openseadragon/images/",
+
+        });
+
+        $(document).ready(function () { //this loads the array that has our xmls and images
+            let manifestArray = null;
+            let page = 0;
+            let maxPage = 0;
+            let xmlDoc;
+
+            $.getJSON("C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/manifest.json")
+                .done(function (manifest) {
+                    manifestArray = manifest;
+
+                    maxPage = manifestArray.length - 1; //This defines a max amount of pages (so you can't click next forever)
+                    $("#textfield").load(manifestArray[page].text);
+                    viewer.addSimpleImage({ url: 'C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/images/' + manifestArray[page].image });
+
+                    loadXml();
+                });
+
+            // This will maybe populate the metadata
+            // https://api.jquery.com/jQuery.parseXML/
+            // This kinda came from: https://stackoverflow.com/a/16417287/5411143
+            function loadXml() {                            //This function allows us to grab individual elements from the xml
+                $.ajax({                                    //ajax is built into JS allows you to change data on the page without reloading the page
+                    type: "GET",
+                    url: manifestArray[page].text,         //So the URL is this value - meaning it will change when we hit next
+                    dataType: "xml",
+                })
+                    .done(function (xml) {
+                        let $xml = $(xml);
+
+                        let titleStmt = $xml.find('titleStmt');
+                        $("#meta-title").html($(titleStmt).text());
+
+                        let altIdentifier = $xml.find('altIdentifier');
+                        $("#alt-Identifier").html("<b>Name: </b>" + $(altIdentifier).text());
+
+                        let origDate = $xml.find('origDate');
+                        $("#orig-Date").html("<b>Date: </b>" + $(origDate).text());
+
+                        let textLang = $xml.find('textLang');
+                        $("#text-Lang").html("<b>Language: </b>" + $(textLang).text());
+
+                    })
+                    .fail(function (err) {
+                        console.log('error loading xml', err);
+                    });
+            }
+
+            //the button
+            $("#next_button").click(function () {
+
+                if (page < maxPage) {                   //If the value of page is less than maxPage, it will incriment the value of page.
+                    page++;
+                    $("#textfield").load(manifestArray[page].text);
+                    viewer.addSimpleImage({ url: 'images/' + manifestArray[page].image });
+                    loadXml();
+                };
+            });
+
+            $("#back_button").click(function () {
+                if (page > 0) {                        //If the value of page is greater than 0, it will decrease the value of page.
+                    page--;
+                    $("#textfield").load(manifestArray[page].text);
+                    viewer.addSimpleImage({ url: 'C:/Users/user/Documents/Thesis/Thesis Docs/viewer_project-master/viewer_project-master/images/' + manifestArray[page].image });
+                };
+            });
+
+                      $("#OEB").click(function () {
+            $("#OEB").removeClass("grey");
+            $("#marginalia").removeClass("red");
+            $("#OEB").addClass("red");
+            $("#marginala").addClass("grey");
+        });
+        
+        $("#marginalia").click(function () {
+             $("#marginalia").removeClass("grey");
+            $("#OEB").removeClass("red");
+            $("#marginala").addClass("red");
+            $("#OEB").addClass("grey");
+        });
+
+$("#MarginalScribe1").click(function () {
+    $("#MarginalScribe1").removeClass("grey");
+            $("#MarginalScribe2").removeClass("red");
+            $("#MarginalScribe1").addClass("red");
+            $("#MarginalScrbe2").addClass("grey");
+});
+
+$("#MarginalScribe2").click(function () {
+    $("#MarginalScribe2").removeClass("grey");
+            $("#MarginalScribe2").removeClass("red");
+            $("#MarginalScribe1").addClass("red");
+            $("#MarginalScrbe2").addClass("grey");
+});
+
+        });
+
+    </script>
+</body>
+
+</html>
