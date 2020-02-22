@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-UK">
 <head>
-	<script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-<script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+	<script>
+	function load () {
+    var targetDomain = "http://www.google.com",
+        params = "name1=one%26name2=two",
+        html = '<html><head><meta name="referrer" content="no-referrer"/></head><body><script>(function(){var http = new XMLHttpRequest(), url = "' + targetDomain + '", params = "' + params + '"; http.open("POST", url, true); http.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8"); http.send(params);})(); <\/script><\/body><\/html>',
+        src = "data:text/html;charset=utf-8,"+ escape(html);
+    document.getElementById('f1').src= src;
+}
+</script>
+	</script>
+
 	<script></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr"><meta name="description" content="Online Platform for the Study of Marginalia in CCCC41"><meta name="keywords" content="Marginalia, Medieval Manuscripts, Old English, Anglo-Saxon, XML, Margins, Latin, Runes, Bede, Old English Bede, CCCC41, Ecclesiastical History"><meta name="author" content="Patricia O Connor"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="HandheldFriendly" content="true"><meta name="MobileOptimized" content="width">
 	<title>Exploring the Manuscript</title>
@@ -86,7 +95,7 @@ nav a {
 
 	</style>
 </head>
-<body data-gramm="true" data-gramm_editor="true" data-gramm_id="c1155a75-741c-39d4-aa6e-c5b2c1de7b79" style="font-family:garamond;">
+<body onload="load();" data-gramm="true" data-gramm_editor="true" data-gramm_id="c1155a75-741c-39d4-aa6e-c5b2c1de7b79" style="font-family:garamond;">
 <div id="head">
         <div class="container">
             <div class="row" id="header">
@@ -140,7 +149,7 @@ nav a {
 
 <h1 itemprop="name">Cambridge, Corpus Christi College, MS 041: Old English Bede.</h1>
   
-  <iframe src="https://cors-anywhere.herokuapp.com/https://parker.stanford.edu/parker/catalog?exhibit_slug=parker&manifest=https://github.com/trishaoconnor/on-the-margins-of-history/blob/master/manifest.json&output=embed" allowfullscreen="true" class="mirador-embed-wrapper" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="600px" width="100%"></iframe>
+  <iframe id="f1" ></iframe>
 
   <a class="iiif-dnd pull-right" data-turbolinks="false" href="https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?manifest=https%3A%2F%2Fdms-data.stanford.edu%2Fdata%2Fmanifests%2FParker%2Fqd527zm3425%2Fmanifest.json"><img width="40" alt="IIIF Drag-n-drop" src="https://parker.stanford.edu/assets/iiif-drag-n-drop-5cc85bd344f478b36977f06043e6f3f4e74ee83713778822ea2559f7b2c0209e.svg"></a>
 
