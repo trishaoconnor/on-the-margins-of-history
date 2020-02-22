@@ -286,5 +286,38 @@ document.write(
 </footer>
 
 <p><a href="https://www.ucc.ie/" target="_blank"><img alt="UCC logo" class="footer-logo img responsive" src="/on_the_margins_of_history/ucc-website-logo.gif" style="width: 156px; height: 75px; float: right;" /></a><a href="https://research.ie/" target="_blank"><img alt="IRC logo" class="footer-logo img-responsive" src="/on_the_margins_of_history/IRC LOGO (with website).jpg" style="width: 450px; height: 75px; float: left;" /></a></p>
+	
+	<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Simple Viewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      #viewer {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="build/mirador/css/mirador-combined.css">
+    <script src="build/mirador/mirador.js"></script>
+  </head>
+  <body>
+    <div id="viewer"></div>
+    <script type="text/javascript">
+      $(function() {
+        Mirador({
+          id: "viewer",
+     
+  data: [
+    { manifestUri: "http://iiif/id/and/uri/of/your/manifest.json", location: "My Repository" }
+  ]
+        });
+      });
+    </script>
+  </body>
+</html>
+	
 </body>
 </html>
