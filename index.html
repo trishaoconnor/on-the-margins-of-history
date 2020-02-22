@@ -2,19 +2,7 @@
 <html lang="en-UK">
 <head>
 	<script>
-var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-targetUrl = 'https://parker.stanford.edu/mirador?exhibit_slug=parker&amp;manifest=https://dms-data.stanford.edu/data/manifests/Parker/qd527zm3425/manifest.json'
-fetch(proxyUrl + targetUrl)
-  .then(blob => blob.json())
-  .then(data => {
-    console.table(data);
-    document.querySelector("iframe").innerHTML = JSON.stringify(data, null, 2);
-    return data;
-  })
-  .catch(e => {
-    console.log(e);
-    return e;
-  });
+
 	</script>
 
 	<script></script>
