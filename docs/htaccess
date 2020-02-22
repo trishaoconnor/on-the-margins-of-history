@@ -1,0 +1,3 @@
+Header always unset X-Frame-Options
+Header set X-Frame-Options ALLOW
+Header set X-Frame-Options: "GOFORIT"
