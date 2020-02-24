@@ -5,7 +5,7 @@
 	fetch('https://cors-anywhere.herokuapp.com/https://mirador.trishaoconnor.com:8000')
 		 headers: new Headers({
     'X-Requested-With': 'XMLHttpRequest'
-  }),
+  })
   .then((response) => {
     return response.json();
   })
