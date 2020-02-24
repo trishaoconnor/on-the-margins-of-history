@@ -9,7 +9,7 @@ const Url = 'https://cors-anywhere.herokuapp.com/https://mirador.trishaoconnor.c
 let response = fetch(Url, {
 headers: {
     'X-Requested-With': 'XMLHttpRequest'
-  })
+  }
   .then((response) => {
     return response.json();
   })
