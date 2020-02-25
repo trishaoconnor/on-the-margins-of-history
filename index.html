@@ -2,8 +2,20 @@
 <html lang="en-UK">
 <head>
 	<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
 
-	</script>
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr"><meta name="description" content="Online Platform for the Study of Marginalia in CCCC41"><meta name="keywords" content="Marginalia, Medieval Manuscripts, Old English, Anglo-Saxon, XML, Margins, Latin, Runes, Bede, Old English Bede, CCCC41, Ecclesiastical History"><meta name="author" content="Patricia O Connor"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="HandheldFriendly" content="true"><meta name="MobileOptimized" content="width">
 	<title>Exploring the Manuscript ~</title>
@@ -142,9 +154,9 @@ nav a {
 <h1 itemprop="name">Cambridge, Corpus Christi College, MS 041: Old English Bede.</h1>
   
   
-	  <iframe src='https://mirador.trishaoconnor.com:8080' allowfullscreen="true" class="mirador-embed-wrapper" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="600px" width="100%"></iframe>
+	  <iframe id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" src='https://mirador.trishaoconnor.com:8080' allowfullscreen="true" class="mirador-embed-wrapper" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" height="600px" width="100%"></iframe>
 	  
-  <a class="iiif-dnd pull-right" data-turbolinks="false" href="https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?manifest=https%3A%2F%2Fdms-data.stanford.edu%2Fdata%2Fmanifests%2FParker%2Fqd527zm3425%2Fmanifest.json"><img width="40" alt="IIIF Drag-n-drop" src="https://parker.stanford.edu/assets/iiif-drag-n-drop-5cc85bd344f478b36977f06043e6f3f4e74ee83713778822ea2559f7b2c0209e.svg"></a>
+  <a id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" class="iiif-dnd pull-right" data-turbolinks="false" href="https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?manifest=https%3A%2F%2Fdms-data.stanford.edu%2Fdata%2Fmanifests%2FParker%2Fqd527zm3425%2Fmanifest.json"><img width="40" alt="IIIF Drag-n-drop" src="https://parker.stanford.edu/assets/iiif-drag-n-drop-5cc85bd344f478b36977f06043e6f3f4e74ee83713778822ea2559f7b2c0209e.svg"></a>
 
 <hr>
 <p style="font-family:garamond;font-size:15px;">The IIIF manifest of Cambridge, Corpus Christi College MS 41 is copyright of the Master and Fellows of Corpus Christi College, Cambridge. The IIIF manifest of CCCC MS 41 was published on <a href="https://parker.stanford.edu/parker/">The Parker Library on the Web 2.0</a> and is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. The IIIF manifest of CCCC MS 41 is stored in Stanford University Library's <a class="purl-link" href="https://purl.stanford.edu/qd527zm3425">Digital Repository for the Parker Manuscripts Collection</a>. If you require images from this manuscript for publication, in print or in an electronic format, for scholarly or commercial purposes, please contact the Parker directly at <a href="mailto:parker-library@corpus.cam.ac.uk">parker-library@corpus.cam.ac.uk</a>.</p>
